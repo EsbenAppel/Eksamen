@@ -1,0 +1,155 @@
+:root {
+    --red: #710d0f;
+    --pink: #ff2fa3;
+    --green: #9cff57;
+    --bg: #f4efe6;
+    --black: #111;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--black);
+
+    position: relative;
+    /* <-- fjernet overflow: hidden; så scroll virker */
+}
+
+/* gritty background behind everything */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    /* sørg for at pseudo-elementet ligger bag indholdet */
+    z-index: 0;
+
+    background-image: url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'>\
+      <defs>\
+        <filter id='distort'>\
+          <feTurbulence type='turbulence' baseFrequency='0.12' numOctaves='2' result='noise'/>\
+          <feTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='3' result='detail'/>\
+          <feBlend in='noise' in2='detail' mode='multiply' result='combined'/>\
+          <feDisplacementMap in='combined' in2='noise' scale='80' xChannelSelector='R' yChannelSelector='G'/>\
+        </filter>\
+      </defs>\
+      <rect width='400' height='400' filter='url(%23distort)'/>\
+    </svg>");
+    background-size: cover;
+    mix-blend-mode: multiply;
+    opacity: 0.25;
+}
+
+header {
+    background: var(--red);
+    color: var(--black);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    border-bottom: 2px solid var(--black);
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'>\
+      <defs>\
+        <filter id='distort'>\
+          <feTurbulence type='turbulence' baseFrequency='0.12' numOctaves='2' result='noise'/>\
+          <feTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='3' result='detail'/>\
+          <feBlend in='noise' in2='detail' mode='multiply' result='combined'/>\
+          <feDisplacementMap in='combined' in2='noise' scale='80' xChannelSelector='R' yChannelSelector='G'/>\
+        </filter>\
+      </defs>\
+      <rect width='300' height='300' filter='url(%23distort)'/>\
+    </svg>");
+
+    background-size: cover;
+    mix-blend-mode: multiply;
+    opacity: 0.45;
+}
+
+
+.logo img {
+    max-height: 60px;
+    width: auto;
+    rotate: 30deg;
+    display: block;
+}
+
+header nav a {
+    color: var(--bg);
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.section-line {
+  width: 80%;
+  height: 3px;
+  background: var(--red);
+  margin: 25px auto;
+}
+
+
+.projects {
+  max-width: 900px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Selve projektkortet */
+.project-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 20px;
+  border: 2px solid var(--black);
+  background: var(--bg);
+  box-shadow: 0 4px 0 var(--black);
+  border-radius: 6px;
+}
+
+/* Større billeder */
+.project-card img.project-img {
+  width: 300px;      /* ← gør større her */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Tekst ved siden af billedet */
+.project-text {
+  flex: 1;          /* ← så teksten fylder resten af pladsen */
+}
+
+.project-text h3 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+
+
+footer {
+border-top: 2px solid var(--black);
+  margin-top: 80px;
+  padding: 40px;
+  text-align: center;
+  background: var(--red);
+  color: var(--bg);
+  font-size: 1rem;
+}

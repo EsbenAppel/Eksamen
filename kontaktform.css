@@ -6,6 +6,7 @@
     --black: #111;
 }
 
+/* BODY */
 body {
     margin: 0;
     background: var(--bg);
@@ -13,14 +14,17 @@ body {
     color: var(--black);
 
     position: relative;
-    
+    /* <-- fjernet overflow: hidden; så scroll virker */
 }
 
+/* gritty background behind everything */
 body::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
+
+    /* sørg for at pseudo-elementet ligger bag indholdet */
     z-index: 0;
 
     background-image: url("data:image/svg+xml;utf8,\
@@ -92,68 +96,35 @@ header nav a {
     font-size: 1.5rem;
 }
 
-.hero {
-    padding: 20px 20px 20px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 4rem;
+.tekst {
+    color: var(--black);
+     margin-left: auto;
+  margin-right: auto;
     font-weight: bold;
-    margin: 0;
+    font-size: 1.5rem;
+
 }
 
-.section-line {
-  width: 80%;
-  height: 3px;
-  background: var(--red);
-  margin: 25px auto;
+input[type=text], select, textarea {
+   width: 70%;
+  max-width: 400px;   
+  padding: 12px;
+  border: 1.5px solid var(--green);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 6px auto 16px auto; 
+  display: block;    
+  resize: vertical;
 }
 
-.video {
-  width: 50%;
-  height: auto;
+input[type=submit] {
+  background-color: var(--red);
+  color: var(--bg);
+  padding: 12px 20px;
+  border: var(--black);
+  border-radius: 4px;
+  cursor: pointer;
 }
-
-.projects {
-  max-width: 900px;
-  margin: 60px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-/* Selve projektkortet */
-.project-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 25px;
-  padding: 20px;
-  border: 2px solid var(--black);
-  background: var(--bg);
-  box-shadow: 0 4px 0 var(--black);
-  border-radius: 6px;
-}
-
-/* Større billeder */
-.project-card img.project-img {
-  width: 300px;      /* ← gør større her */
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* Tekst ved siden af billedet */
-.project-text {
-  flex: 1;          
-}
-
-.project-text h3 {
-  margin-top: 0;
-  font-size: 1.8rem;
-}
-
 
 footer {
 border-top: 2px solid var(--black);
@@ -164,3 +135,4 @@ border-top: 2px solid var(--black);
   color: var(--bg);
   font-size: 1rem;
 }
+

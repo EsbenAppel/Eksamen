@@ -18,7 +18,7 @@ body {
 
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
@@ -136,6 +136,12 @@ header nav a {
   border-radius: 6px;
 }
 
+.project-card video {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
 /* Større billeder */
 .project-card img.project-img {
   width: 300px;      /* ← gør større her */
@@ -163,4 +169,66 @@ border-top: 2px solid var(--black);
   background: var(--red);
   color: var(--bg);
   font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .projects {
+    margin: 40px 20px;
+  }
+
+  .project-card {
+    gap: 20px;
+  }
+
+  .project-card img.project-img,
+  .project-card video {
+    width: 240px;
+  }
+
+  .project-text h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  header nav a {
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .projects {
+    margin: 30px 15px;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .project-card img.project-img,
+  .project-card video {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .project-text h3 {
+    font-size: 1.4rem;
+  }
 }

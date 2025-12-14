@@ -20,7 +20,7 @@ body {
 /* gritty background behind everything */
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     inset: 0;
     pointer-events: none;
 
@@ -96,14 +96,66 @@ header nav a {
     font-size: 1.5rem;
 }
 
+.hero {
+    padding: 20px 20px 10px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.section-line {
+  width: 80%;
+  height: 3px;
+  background: var(--red);
+  margin: 25px auto;
+}
+
+.projects {
+  max-width: 900px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 20px;
+  border: 2px solid var(--black);
+  background: var(--bg);
+  box-shadow: 0 4px 0 var(--black);
+  border-radius: 6px;
+}
+
+.project-text h3 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
 .tekst {
+    display: block;
+    width: 70%;         /* samme bredde som inputfelterne */
+    max-width: 400px;
+    margin: 20px auto 6px auto;
+    text-align: left;   /* eller center hvis du vil ha' centreret tekst */
     color: var(--black);
-     margin-left: auto;
-  margin-right: auto;
     font-weight: bold;
     font-size: 1.5rem;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
 
 }
+
 
 input[type=text], select, textarea {
    width: 70%;
@@ -118,12 +170,24 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-  background-color: var(--red);
-  color: var(--bg);
-  padding: 12px 20px;
-  border: var(--black);
-  border-radius: 4px;
-  cursor: pointer;
+    background-color: var(--red);
+    color: var(--bg);
+    padding: 14px 30px;
+    border: 2px solid var(--black);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.2s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=submit]:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0 var(--black);
 }
 
 footer {
@@ -136,3 +200,73 @@ border-top: 2px solid var(--black);
   font-size: 1rem;
 }
 
+@media (max-width: 1024px) {
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .projects {
+    margin: 40px 20px;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .tekst,
+  input[type=text],
+  textarea {
+    width: 80%;
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  header nav a {
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .projects {
+    margin: 30px 15px;
+  }
+
+  .project-card {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .project-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .tekst,
+  input[type=text],
+  textarea {
+    width: 90%;
+    max-width: none;
+    font-size: 1.1rem;
+  }
+
+  textarea {
+    height: 160px;
+  }
+
+  input[type=submit] {
+    width: auto;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}

@@ -83,6 +83,8 @@ header::before {
     width: auto;
     rotate: 30deg;
     display: block;
+    position: relative;
+    top: -5px;
 }
 
 header nav a {

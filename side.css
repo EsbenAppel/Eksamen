@@ -228,7 +228,6 @@ border-top: 2px solid var(--black);
   font-size: 1rem;
 }
 
-/* ====== Mobil (max 600px) ====== */
 @media (max-width: 600px) {
 
     header {
@@ -282,7 +281,6 @@ border-top: 2px solid var(--black);
     }
 }
 
-/* ====== Tablet (600–900px) ====== */
 @media (max-width: 900px) {
 
     .intro {
@@ -308,7 +306,7 @@ border-top: 2px solid var(--black);
     }
 }
 
-/* ====== Lille desktop (900–1200px) ====== */
+
 @media (max-width: 1200px) {
     .projects {
         grid-template-columns: repeat(2, 1fr);
